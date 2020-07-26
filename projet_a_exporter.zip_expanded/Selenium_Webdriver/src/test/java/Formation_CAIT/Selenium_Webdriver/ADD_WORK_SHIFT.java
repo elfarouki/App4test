@@ -1,14 +1,14 @@
 package Formation_CAIT.Selenium_Webdriver;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.openqa.selenium.support.ui.Select;
 
-public class TestSignOnOrangeHRM {
-
+public class ADD_WORK_SHIFT {
+	
 protected static WebDriver driver;
 	
 	@BeforeTest
@@ -22,26 +22,29 @@ protected static WebDriver driver;
 	@Test
 	public static void ConnectAccount() throws InterruptedException {
 		driver.get("http://127.0.0.1/orangehrm-4.3.5/symfony/web/index.php/auth/login/");
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		driver.findElement(By.name("txtUsername")).sendKeys("Tafsir");
 		driver.findElement(By.name("txtPassword")).sendKeys("6Septembre@1989");
 		Thread.sleep(5000);
 		driver.findElement(By.name("Submit")).click();
-		//Thread.sleep(5000);
-		driver.findElement(By.name("menu_admin_UserManagement")).click();
-		//driver.findElement(By.name("menu_pim_addEmployee")).click();
-		//driver.findElement(By.name("firstName")).sendKeys("Rym");
-		//driver.findElement(By.name("lastName")).sendKeys("Skhiri");
-		//driver.findElement(By.name("chkLogin")).click();
-		//driver.findElement(By.name("user_name")).sendKeys("rym03");
-		//driver.findElement(By.name("user_password")).sendKeys("tatatata");
-		//driver.findElement(By.name("re_password")).sendKeys("tatatata");
-		//driver.findElement(By.name("status")).click();
-		//driver.findElement(By.name("btnSave")).click();
-		//driver.findElement(By.name("welcome")).click();
-		//driver.findElement(By.linkText("Logout")).click();
-	//	driver.findElement(By.xpath("//*[@id="welcome-menu"]/ul/li[2]/a")).click();
-		driver.quit();
+		Thread.sleep(5000);
+		driver.findElement(By.id("menu_admin_viewAdminModule")).click();
+		Thread.sleep(3000);
+	    driver.findElement(By.id("menu_admin_Job")).click();
+	    Thread.sleep(3000);
+	    driver.findElement(By.id("menu_admin_workShift")).click();
+	    Thread.sleep(3000);
+	    driver.findElement(By.id("btnAdd")).click();
+	    Thread.sleep(3000);
+	    driver.findElement(By.id("workShift_name")).click();
+	    Thread.sleep(3000);
+	    driver.findElement(By.id("workShift_name")).clear();
+	    driver.findElement(By.id("workShift_name")).sendKeys("Testeur");
+	    new Select(driver.findElement(By.id("workShift_workHours_from"))).selectByVisibleText("09:15");
+	    new Select(driver.findElement(By.id("workShift_workHours_to"))).selectByVisibleText("17:15");
+	    driver.findElement(By.id("btnSave")).click();
+}
+}
 
-}
-}
+
+

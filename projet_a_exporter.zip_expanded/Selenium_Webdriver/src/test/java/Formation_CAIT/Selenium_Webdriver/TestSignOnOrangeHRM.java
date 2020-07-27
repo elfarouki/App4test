@@ -42,8 +42,6 @@ protected static WebDriver driver;
                 // driver.findElement(By.id("systemUser_userType")).click();
         driver.findElement(By.id("systemUser_employeeName_empName")).sendKeys("aar aerarae");
         Thread.sleep(1000);
-        driver.findElement(By.id("systemUser_userName")).sendKeys("Sophie03");
-        Thread.sleep(1000);
         new Select(driver.findElement(By.id("systemUser_status"))).selectByVisibleText("Inactif");
         Thread.sleep(1000);
         driver.findElement(By.id("systemUser_password")).sendKeys("fITEC2020*1");
